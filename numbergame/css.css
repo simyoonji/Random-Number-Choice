@@ -16,7 +16,7 @@ body{
     padding: 10px; 
     box-sizing: border-box; 
     text-align: center; 
-    background:url('/maxresdefault.jpg')center center no-repeat;
+    background:url('../maxresdefault.jpg')center center no-repeat;
     background-size: cover;
     box-shadow: 0 0 20px 0 gray;
     border-radius: 20px;
@@ -30,7 +30,7 @@ body{
     width: 50%; 
     height: 200px;
     margin: 0 auto;
-    background: url('/537ef59499259ba707068742f91a10f8.jpg')center center no-repeat;
+    background: url('../537ef59499259ba707068742f91a10f8.jpg')center center no-repeat;
     background-size: cover;
     border: 2px solid #000;
 }
