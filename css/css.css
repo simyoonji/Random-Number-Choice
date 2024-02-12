@@ -7,6 +7,7 @@
 body{
     font-family: 'Giants-Inline'; 
     font-weight: bold;
+    background-color: lightpink;
 }
 #container{
     max-width:800px;
@@ -72,6 +73,40 @@ button:last-of-type:hover {
     background-color: red; 
     color: #fff;
 }
+
+span:first-of-type {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 6%;
+    animation: move1 1s alternate infinite;
+}
+span:last-of-type {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    animation: move2 2s alternate infinite;
+}
+
+@keyframes move1 {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(10%);
+    }
+}
+
+@keyframes move2 {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-10%);
+    }
+}
+
+
 
 /*520px*/
 @media screen and (max-width:561px){

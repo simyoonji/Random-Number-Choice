@@ -1,28 +1,23 @@
-//랜덤번호 지정
-//유저가 번호를 입력하고 go라는 버튼을 누름 
-//만약에 유저가 랜덤번호를 맞추면, 맞췄습니다!
-//랜덤번호가 < 유저번호 DOWN!
-//랜덤번호가 > 유저번호 up ! 
-//버튼을 누르면 게임이 리셋된다.
-//5번의 기회를 다 쓰면 게임이 끝난다.  (더이상 추측불가, disable 됨)
-//유저가 1~100 범위 밖에 숫자를 입력하면 알려준다. 기회를 깎지 않는다.
-//유저가 이미 입력한 숫자를 또 입력하면 알려준다. 기회를 깎지 않는다. 
-
-let computerNum = 0;
-let userArea = document.getElementById("user-area") //userArea 변수에 input 넣음 
-let playBtn = document.getElementById("play-btn") //playBtn 변수에 button 넣음. 
-let resultArea = document.getElementById("result-area") //resultArea 변수에 button 넣음. 
-let countArea = document.getElementById("count-area")
+let userArea = document.getElementById("user-area") // inptu
+let playBtn = document.getElementById("play-btn")  // 버튼
+let resultArea = document.getElementById("result-area") //결과창
+let countArea = document.getElementById("count-area") //카운트
+let resetArea = document.getElementById("reset-btn") //리셋
 let gameOver = false;
-let resetArea = document.getElementById("reset-btn")
-let count = 10;
+let computerNum = 0; //랜덤번호 
+let count = 5;
 let history = [];
 
 playBtn.addEventListener("click",play)
 resetArea.addEventListener("click",resetGame)
-userArea.addEventListener("focus",function(){
+userArea.addEventListener("focus",()=>{
  userArea.value="";
-})
+});
+userArea.addEventListener("keydown",(event) => {
+    if (event.keyCode == 13) {
+        play();
+    }
+});
 
 //랜덤번호 추출 함수
 function randomNum(){ 
@@ -43,16 +38,16 @@ function play(){
      resultArea.textContent="이미 입력한 숫자네요, 다른 숫자를 입력 해봐요 ~"
      return;
  }
- //히스토리에 userArea에 입력한 값들이 들어와야함.
+
  history.push(userValue)
  console.log(history)
  count--; //누를 때 마다 카운트 차감
  countArea.innerText = `남은기회: ${count}번`
 
  if(userValue < computerNum){
-     resultArea.textContent="UP!!"
+     resultArea.textContent="오호우~ 그것보단 높을걸요?!"
  }else if(userValue > computerNum){
-     resultArea.textContent="DOWN!!"
+     resultArea.textContent="오호우~ 그것보단 낮을걸요?!"
  }else {
      resultArea.textContent="맞췄어요 대단해요!"
      gameOver = true;
@@ -66,13 +61,13 @@ function play(){
  }
 }
 
+
 function resetGame(){
-     //다시하기 누르면 할것 -> 카운트 초기화, 유저입력창 초기화, 버튼활성화 ,새로운 번호 뽑기 
-     userArea.value = "";    
      randomNum();
+     userArea.value = "";    
      history = [];
+     count = 5;
      resultArea.textContent="결과를 확인해봐요"
-     count = 10;
      countArea.innerText = `남은기회: ${count}번` 
      playBtn.disabled = false;
      gameOver = false;
