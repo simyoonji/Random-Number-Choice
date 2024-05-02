@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- favicon -->
+     <link rel="icon" href="/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/css.css">
-    <title>Document</title>
-    <style>
-      
-
-    </style>
+    <title>Random Number Choice Game</title>
 </head>
+
 <body>
-    <div id="container">
-        <div class="inner">
-            <h1>숫자 맞추기 게임</h1>
-                <div class="imgBox">
-                </div>
-            <p id="result-area">결과를 확인해봐요</p>
-            <p id="count-area">남은기회: 5번</p>
-            <input type="number" id="user-area">
-            <button id="play-btn">확인하기</button>
-            <button id="reset-btn">다시하기</button>
+    <section>
+        <header>
+            <p id="count-area">COUNT: 5</p>
+
+            <h1><em>Random Number</em><br>Choice Game!</h1>
+
+            <span>STAGE<br>01</span>
+        </header>
+
+        <div id="container">
+            <p id="result-area">START!</p>
+
+            <div class="btn">
+                <input type="number" id="user-area" placeholder="???">
+
+                <button id="play-btn">CHECK</button>
+                <button id="reset-btn">RESET</button>
+            </div>
         </div>
-
-        <span>
-            <img src="./img/움직이는 짱구.png" alt="짱구">
-        </span>
-        <span>
-            <img src="./img/움직이는 짱아.png" alt="짱아">
-        </span>
-    </div>
+    </section>
    
-    <script>
-
-    </script>
+    <!-- script -->
     <script src="./script/main.js"></script>
 </body>
 

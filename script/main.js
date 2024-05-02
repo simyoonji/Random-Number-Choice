@@ -31,30 +31,30 @@ function play(){
  let userValue = userArea.value
  
  if(userValue < 1 || userValue > 100){
-     resultArea.textContent="1~100 까지의 숫자만 입력 해주시겠어요?"
+     resultArea.textContent="1 ~ 100 까지 숫자를 입력해주세요."
      return;
  }
  if(history.includes(userValue)){
-     resultArea.textContent="이미 입력한 숫자네요, 다른 숫자를 입력 해봐요 ~"
+     resultArea.textContent="이미 입력한 숫자입니다."
      return;
  }
 
  history.push(userValue)
  console.log(history)
  count--; //누를 때 마다 카운트 차감
- countArea.innerText = `남은기회: ${count}번`
+ countArea.innerText = `COUNT: ${count}`
 
  if(userValue < computerNum){
-     resultArea.textContent="오호우~ 그것보단 높을걸요?!"
+     resultArea.textContent="HINT : UP! 👆"
  }else if(userValue > computerNum){
-     resultArea.textContent="오호우~ 그것보단 낮을걸요?!"
+     resultArea.textContent="HINT : DOWN 👇"
  }else {
-     resultArea.textContent="맞췄어요 대단해요!"
+     resultArea.textContent="💎 CLEAR! 💎"
      gameOver = true;
  }
  if(count < 1){
      gameOver = true;
-     resultArea.textContent="정말 아쉬워요~ 다시 한번 도전하면 맞출 수 있을지도 ~"
+     resultArea.textContent="GAME OVER 🎮"
  }
  if(gameOver == true){
      playBtn.disabled = true;
@@ -67,8 +67,8 @@ function resetGame(){
      userArea.value = "";    
      history = [];
      count = 5;
-     resultArea.textContent="결과를 확인해봐요"
-     countArea.innerText = `남은기회: ${count}번` 
+     resultArea.textContent="START!"
+     countArea.innerText = `COUNT: ${count}` 
      playBtn.disabled = false;
      gameOver = false;
 }
